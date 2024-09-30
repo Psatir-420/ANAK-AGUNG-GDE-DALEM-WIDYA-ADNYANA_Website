@@ -94,7 +94,7 @@ function checkStatus(data) {
   }
   else {
       // User is not logged in, redirect to login page with data-href
-      window.location.href = '../auth/loginv2.html?redirect=' + encodeURIComponent(data);
+      window.location.href = 'auth/loginv2.html?redirect=' + encodeURIComponent(data);
   }
 }
 
