@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../lib/boxicons v2.1.4/css/boxicons.min.css">
-    <link rel="icon" href="/assets/img/favicon.svg">
+    <link rel="icon" href="../assets/img/favicon.svg">
 
     <title>React Tutorial</title>
 </head>
 <body>
     <nav>
         <div class="container nav-con">
-            <a href="index.html"><img style="width: 100%; height: auto;" src="/assets/img/logo.svg" alt="logo"></a>
+            <a href="../index.html"><img style="width: 100%; height: auto;" src="../assets/img/logo.svg" alt="logo"></a>
             <ul class="nav-menu">
                 <li><a href="../index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="../page/about.html">About</a></li>
                 <li><a href="../page/courses.html">Courses</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="../page/contact.html">Contact</a></li>
                 <li class="dashboard"><a href="../dashboard.html">Account</a></li>
                 <li><a class="status" onclick="checkStatus()">Login</a></li>
             </ul>
@@ -46,7 +46,7 @@
             
                 </div>
             <div class="blog-r">
-                <img src="/assets/img/react-installation-tutorial.png" alt="">
+                <img src="../assets/img/react-installation-tutorial.png" alt="">
             </div>
         </div>
         <div class="blog-ide">
@@ -83,7 +83,7 @@
 
 
     <button id="goToTopBtn" class="top" title="Go to top"><i class="bx bx-up-arrow-alt"></i></button>
-    <script src="/js/script.js"></script>
+    <script src="../js/script.js"></script>
     <script>
         if (localStorage.getItem("isLogin") !== "true") {
             window.location.href = "../auth/loginv2.html?redirect=..%2Fcourses%2Freact-installation-tutorial.html"; // Replace 'login.html' with your actual login page URL
