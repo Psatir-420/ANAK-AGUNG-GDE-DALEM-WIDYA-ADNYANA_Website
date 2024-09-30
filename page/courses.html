@@ -120,25 +120,45 @@
     <script src="../js/course.js"></script> 
     <script src="../js/script.js"></script>
     <script>
-        function checkButton() {
-  const dashboard = document.querySelector('.dashboard');
-  const loginStatus = localStorage.getItem('loginStatus');
+      function checkButton() {
+        const dashboard = document.querySelector(".dashboard");
+        const loginStatus = localStorage.getItem("loginStatus");
+        const statusElement = document.querySelector(".status");
+
+        if (loginStatus === "login") {
+          console.log("masuk");
+          dashboard.style.display = "block";
+          statusElement.textContent = "Logout";
+          statusElement.style.color = "#B23B3B";
+        } else {
+          dashboard.style.display = "none";
+          statusElement.textContent = "Login";
+          statusElement.style.color = "teal";
+        }
+      }
+
+      function checkStatus(data) {
+  const isLoggedIn = localStorage.getItem('isLogin');
   const statusElement = document.querySelector('.status');
 
-  if (loginStatus === 'login') {
-      console.log("masuk")
-      dashboard.style.display = 'block';
-      statusElement.textContent = 'Logout';
-      statusElement.style.color = '#B23B3B';
-  } else {
-      dashboard.style.display = 'none';
-      statusElement.textContent = 'Login';
-      statusElement.style.color = 'teal';
+  if (isLoggedIn === 'true' && typeof data === 'undefined') {
+      // User is logged out (logic within checkStatus remains unchanged)
+      localStorage.setItem('isLogin', false);
+      alert('Logout Berhasil');
+      localStorage.setItem('loginStatus', 'logout');
+      checkButton();
+      window.location.reload()
+  } else if (isLoggedIn === 'true') {
+    window.location.href = data;
+  }
+  else {
+      // User is not logged in, redirect to login page with data-href
+      window.location.href = '../auth/loginv2.html?redirect=' + encodeURIComponent(data);
   }
 }
-  
-        window.onload = checkButton;
-      </script>
+
+      window.onload = checkButton;
+    </script>
           <script>
             const circles = document.querySelectorAll(".circless");
       const coords = { x: 0, y: 0 };
