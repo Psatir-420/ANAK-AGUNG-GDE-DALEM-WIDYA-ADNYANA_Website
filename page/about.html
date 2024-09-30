@@ -657,6 +657,26 @@
         }
       }
 
+      function checkStatus(data) {
+  const isLoggedIn = localStorage.getItem('isLogin');
+  const statusElement = document.querySelector('.status');
+
+  if (isLoggedIn === 'true' && typeof data === 'undefined') {
+      // User is logged out (logic within checkStatus remains unchanged)
+      localStorage.setItem('isLogin', false);
+      alert('Logout Berhasil');
+      localStorage.setItem('loginStatus', 'logout');
+      checkButton();
+      window.location.reload()
+  } else if (isLoggedIn === 'true') {
+    window.location.href = data;
+  }
+  else {
+      // User is not logged in, redirect to login page with data-href
+      window.location.href = '../auth/loginv2.html?redirect=' + encodeURIComponent(data);
+  }
+}
+
       window.onload = checkButton;
     </script>
     <script>
