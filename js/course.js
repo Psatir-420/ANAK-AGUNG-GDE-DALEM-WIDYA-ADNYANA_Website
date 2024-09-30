@@ -25,12 +25,12 @@ fetch('../db/course.json')
                 courseCard.style.transform = 'translateY(10px)'; 
 
                 // Set data-href attribute (adjust dynamically based on your course data)
-                courseCard.setAttribute('data-href', `/courses/${course.title.toLowerCase().replace(/\s+/g, '-')}.html`); 
+                courseCard.setAttribute('data-href', `../courses/${course.title.toLowerCase().replace(/\s+/g, '-')}.html`); 
 
                 // Build inner HTML of course card
                 courseCard.innerHTML = `
                     <div class="course-image">
-                        <img src="/assets/img/${course.title.toLowerCase().replace(/\s+/g, '-')}.png" alt="${course.title}" data-href="../courses/${course.title.toLowerCase().replace(/\s+/g, '-')}.html"> 
+                        <img src="../assets/img/${course.title.toLowerCase().replace(/\s+/g, '-')}.png" alt="${course.title}" data-href="../courses/${course.title.toLowerCase().replace(/\s+/g, '-')}.html"> 
                     </div>
                     <div class="course-text">
                         <h4>${course.title}</h4>
