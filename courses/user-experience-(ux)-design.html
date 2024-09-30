@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../lib/boxicons v2.1.4/css/boxicons.min.css">
+    <link rel="icon" href="/assets/img/favicon.svg">
+
+    <title>UX in a Nutshell</title>
+</head>
+<body>
+    <nav>
+        <div class="container nav-con">
+            <a href="index.html"><img style="width: 100%; height: auto;" src="/assets/img/logo.svg" alt="logo"></a>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="../page/courses.html">Courses</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="dashboard"><a href="../dashboard.html">Account</a></li>
+                <li><a class="status" onclick="checkStatus()">Login</a></li>
+            </ul>
+            <button class="open-menu"><i class="bx bx-menu"></i></button>
+            <button class="close-menu"><i class="bx bx-x"></i></button>
+        </div>
+    </nav>
+
+    <div class="container blog">
+        <h1>UX in a Nutshell</h1>
+    </div>
+    <section class="blog-content">
+        <div class="blog-text">
+            <div class="blog-l">
+                <h4>Understanding User Experience: Key Concepts and Principles</h4>
+                <br>
+                <p>User Experience (UX) is a crucial aspect of web and application design, focusing on creating products that offer meaningful and relevant experiences to users. It encompasses various elements, from usability and accessibility to visual design and user satisfaction.</p>
+                <br>
+                <h5>Why UX Matters?</h5>
+                <ul>
+                    <li><p><strong>User Satisfaction:</strong> A well-designed UX ensures that users find the product easy to use and enjoyable, leading to higher satisfaction and retention rates.</p></li>
+                    <li><p><strong>Efficiency:</strong> Good UX design streamlines the user journey, making interactions more intuitive and reducing the time it takes to complete tasks.</p></li>
+                    <li><p><strong>Competitive Advantage:</strong> In a crowded market, a superior UX can differentiate your product from competitors, making it more attractive to potential users.</p></li>
+                </ul>
+            </div>
+            <div class="blog-r">
+                <img src="/assets/img/user-experience-(ux)-design.png" alt="">
+            </div>
+        </div>
+        <div class="blog-ide">
+            <div class="code-editor">
+                <pre>
+            <code>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, dolore.
+           </code>
+                </pre>
+            </div>
+            <div>
+                <h5>Core Principles of UX Design</h5>
+                <p>Effective UX design revolves around several core principles, including user-centered design, usability, accessibility, and visual hierarchy. By focusing on these principles, designers can create products that not only meet user needs but also deliver a seamless and enjoyable experience.</p>
+                <br>
+                <h5 style="text-align: end;">Why Focus on UX?</h5>
+                <p style="text-align: end;">Focusing on UX is essential for creating products that resonate with users. By prioritizing user needs and behaviors, you can design solutions that are not only functional but also delightful and engaging. A strong UX design can significantly impact user satisfaction and the overall success of a product.</p>
+                <br>
+                <p style="text-align: end;">Investing in UX research and design can lead to better user experiences, increased user loyalty, and higher conversion rates. Continually test and refine your designs to ensure they meet user expectations and provide value.</p>
+            </div>
+        </div>
+    </section>
+
+    <button id="goToTopBtn" class="top" title="Go to top"><i class="bx bx-up-arrow-alt"></i></button>
+    <script src="/js/script.js"></script>
+    <script>
+        if (localStorage.getItem("isLogin") !== "true") {
+            window.location.href = "../auth/loginv2.html?redirect=..%2Fcourses%2Fuser-experience-(ux)-design.html";
+        }
+    </script>
+    <script>
+        function checkButton() {
+            const dashboard = document.querySelector('.dashboard');
+            const loginStatus = localStorage.getItem('loginStatus');
+            const statusElement = document.querySelector('.status');
+
+            if (loginStatus === 'login') {
+                // User is logged in, update status
+                console.log("masuk")
+                dashboard.style.display = 'block';
+                statusElement.textContent = 'Logout';
+                statusElement.style.color = '#B23B3B';
+            } else {
+                // User is not logged in, update status
+                dashboard.style.display = 'none';
+                statusElement.textContent = 'Login';
+                statusElement.style.color = 'teal';
+            }
+        }
+
+        window.onload = checkButton;
+    </script>
+</body>
+</html>

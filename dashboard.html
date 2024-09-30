@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="lib/Animate On Scroll v2.3.2/dist/aos.css" />
+    <link rel="stylesheet" href="lib/boxicons v2.1.4/css/boxicons.min.css" />
+    <link rel="icon" href="/assets/img/favicon.svg" />
+    <title>DeBug.org - User Dashboard</title>
+
+    <style>
+      .dashboard {
+        top: 6rem;
+        display: grid;
+        position: relative;
+        grid-template-columns: 1fr 2fr;
+      }
+
+      .dashboard-l {
+        background: #2e3267;
+        padding: 1rem;
+        border-top-left-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+      }
+
+      .dashboard-r .exp-con {
+        background: #424890;
+        padding: 1rem;
+        border-top-right-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        height: 100%;
+        min-height: 200px;
+      }
+
+      .dashboard-r {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: space-between;
+      }
+
+      .profile {
+        margin-top: 3rem;
+        height: 200px;
+        border-radius: 1rem;
+        background-color: #424890;
+        padding: 1rem;
+        position: relative;
+        border: 2px solid #adff2f;
+      }
+
+      .profile .pic {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: greenyellow;
+        transform: translateY(-70%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        color: #424890;
+        border: 1px solid greenyellow;
+      }
+
+      .more {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-around;
+      }
+
+      .more .b {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .more div i {
+        font-size: 20px;
+      }
+
+      .exp {
+        background-color: #2e3267;
+        border-radius: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        height: 100%;
+      }
+
+      .progress-circle {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: conic-gradient(greenyellow 0% 75%, #424890 75% 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .progress-inner {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: #2e3267;
+      }
+
+      .progress-number {
+        position: absolute;
+        font-size: 24px;
+        font-weight: bold;
+        color: greenyellow;
+      }
+
+      .exp-text {
+        color: white;
+      }
+
+      .exp-text h2 {
+        color: greenyellow;
+        margin: 0;
+      }
+
+      .btn-group {
+        margin-top: 1rem;
+        display: flex;
+        gap: 1rem;
+        justify-content: space-around;
+      }
+
+      .btn-group button {
+        padding: 0.5rem;
+        border-radius: 1rem;
+        border: 1px solid greenyellow;
+        background-color: #424890;
+        color: greenyellow;
+        cursor: pointer;
+      }
+
+      .exp-text h3 {
+        color: white;
+      }
+
+      .pricing-slider {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      .pricing-toggle {
+        padding: 10px 20px;
+        background-color: #2e3267; 
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 0 5px;
+        transition: background-color 0.3s ease; 
+      }
+
+      .pricing-toggle:hover {
+        background-color: #2e3267b6; 
+      }
+
+      .pricing-slider input[type="radio"] {
+        display: none; 
+      }
+
+      .pricing-slider input[type="radio"]:checked + label {
+        background-color: greenyellow;
+        color: #2e3267;
+      }
+
+      .option-con {
+        padding: 1rem;
+        background-color: #2e3267;
+        width: 97%;
+        margin-left: 3%;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+        transform: translateY(1rem);
+      }
+      .target {
+        margin-top: 7rem;
+        background-color: #424890;
+        border-radius: 1rem 0 1rem 1rem;
+        padding: 1rem;
+        margin-bottom: 1rem;
+      }
+      .pricing-table {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .price-column {
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 5px;
+        width: 100%;
+      }
+
+      .price-column span {
+        color: greenyellow;
+      }
+
+      .price {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+      }
+
+      .grid-item {
+        background-color: #2e3267;
+        border: 1px solid greenyellow;
+        padding: 1rem;
+        text-align: center;
+        border-radius: 1rem;
+      }
+
+
+      .course-card {
+        background: rgba(255, 255, 255, 0.25); 
+        border-radius: 10px;
+        padding: 1rem;
+        box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.1);
+      }
+      .course-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px; 
+      }
+
+      .wave {
+        display: inline-block;
+        font-size: 50px;
+        animation: wave-animation 2s infinite;
+        transform-origin: 70% 80%;
+      }
+
+      @keyframes wave-animation {
+        0% {
+          transform: rotate(0deg);
+        }
+        20% {
+          transform: rotate(20deg);
+        }
+        40% {
+          transform: rotate(-20deg);
+        }
+        60% {
+          transform: rotate(20deg);
+        }
+        80% {
+          transform: rotate(-10deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        .dashboard {
+          grid-template-columns: 1fr;
+        }
+
+        .dashboard-l {
+          border-radius: 1rem 1rem 0 0;
+        }
+        .dashboard-r .exp-con {
+          border-radius: 0 0 1rem 1rem;
+        }
+
+        .option-con {
+          width: 100%;
+          margin-left: 0;
+          border-radius: 1rem 1rem 0 0;
+        }
+
+        .target {
+          border-radius: 0 0 1rem 1rem;
+        }
+
+        .grid-2 {
+          grid-template-columns: repeat(1, 1fr);
+        }
+
+        .grid-3 {
+          grid-template-columns: repeat(1, 1fr);
+        }
+
+        .detail h5 {
+          text-align: center;
+        }
+
+        .detail h6 {
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="container nav-con">
+        <a href="index.html"
+          ><img
+            style="width: 100%; height: auto"
+            src="/assets/img/logo.svg"
+            alt="logo"
+        /></a>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="/page/about.html">About</a></li>
+          <li><a href="/page/courses.html">Courses</a></li>
+          <li><a href="page/contact.html">Contact</a></li>
+          <li><a class="status" onclick="checkStatus()">Login</a></li>
+        </ul>
+        <button class="open-menu"><i class="bx bx-menu"></i></button>
+        <button class="close-menu"><i class="bx bx-x"></i></button>
+      </div>
+    </nav>
+
+    <div class="dashboard container">
+      <div class="dashboard-l">
+        <div class="greetings">
+          <h1 id="username">Hello, User<span>👋</span></h1>
+          <p>Nice to have you back again!, Lets learn something new today</p>
+        </div>
+        <div class="profile">
+          <div class="pic"><i class="bx bxs-face"></i></div>
+          <div class="detail">
+            <h5>Ismail Ahmad Kanabawi</h5>
+            <h6><i class="bx bxs-edit-location"></i> Bali, Gianyar City</h6>
+            <div class="more">
+              <div class="b">
+                <div class="l">
+                  <i class="bx bx-book-bookmark"></i>
+                </div>
+                <div class="r">
+                  <h6>24</h6>
+                  <p>Course</p>
+                </div>
+              </div>
+              <div class="b">
+                <div class="l"><i class="bx bxs-certification"></i></div>
+                <div class="r">
+                  <h6>24</h6>
+                  <p>Certification</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dashboard-r">
+        <div class="exp-con">
+          <div class="exp">
+            <div class="progress-circle">
+              <div class="progress-inner"></div>
+              <div class="progress-number">75%</div>
+            </div>
+            <div class="exp-text">
+              <h2>EXP</h2>
+              <h3>4.200</h3>
+              <div class="btn-group">
+                <button>Collect Point</button>
+                <button>Buy Merchant</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="option-con">
+          <div class="option">
+            <div class="pricing-slider">
+              <input type="radio" name="pricing-plan" id="student" checked />
+              <label for="student" class="pricing-toggle">Stats</label>
+              <input type="radio" name="pricing-plan" id="business" />
+              <label for="business" class="pricing-toggle">Courses</label>
+              <input type="radio" name="pricing-plan" id="university" />
+              <label for="university" class="pricing-toggle">Certificate</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container target" id="targetDiv"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+
+
+    <footer class="footer">
+      <div class="container foot-con">
+        <div class="foot-1">
+          <a href="index.html"
+            ><img
+              style="width: 200px; height: 70px"
+              src="/assets/img/logo.svg"
+              alt="logo"
+          /></a>
+          <p>
+            DeBug.org is a non-profit organization dedicated to providing free
+            education to everyone. Join us on our mission to democratize
+            learning
+          </p>
+        </div>
+
+        <div class="foot-2">
+          <h3>DeBug.org</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="/page/about.html">About</a></li>
+            <li><a href="page/courses.html">Courses</a></li>
+            <li><a href="page/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="foot-social">
+          <h3>Contact Us</h3>
+          <p>0896969420</p>
+          <ul class="social">
+            <li>
+              <i class="bx bxl-facebook-circle" style="color: #4267b2"></i>
+            </li>
+            <li><i class="bx bxl-instagram-alt"></i></li>
+            <li><i class="bx bxl-twitter" style="color: #1da1f2"></i></li>
+            <li><i class="bx bxl-github" style="color: #171515"></i></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <button id="goToTopBtn" class="top" title="Go to top">
+      <i class="bx bx-up-arrow-alt"></i>
+    </button>
+
+    <!-- <h1>User Dashboard</h1>
+    <div id="user-info"></div> -->
+
+    <script src="js/script.js"></script>
+    <script>
+      if (localStorage.getItem("isLogin") !== "true") {
+        window.location.href =
+          "../auth/loginv2.html?redirect=../dashboard.html";
+      }
+    </script>
+    <script>
+      function checkButton() {
+        const loginStatus = localStorage.getItem("loginStatus");
+        const statusElement = document.querySelector(".status");
+
+        if (loginStatus === "login") {
+          console.log("masuk");
+          statusElement.textContent = "Logout";
+          statusElement.style.color = "#B23B3B";
+        } else {
+          statusElement.textContent = "Login";
+          statusElement.style.color = "teal";
+        }
+      }
+
+      window.onload = checkButton;
+    </script>
+    <script>
+      const storedUsername = localStorage.getItem("username");
+      const usernameElement = document.getElementById("username");
+
+      if (storedUsername) {
+        usernameElement.innerHTML = `Hello, ${storedUsername}<span class="wave">👋</span>`;
+      } else {
+        usernameElement.innerHTML = "Hello, Guest<span>👋</span>";
+      }
+    </script>
+    <script>
+
+      function updateContent(content) {
+        const targetDiv = document.getElementById("targetDiv");
+        targetDiv.innerHTML = content;
+      }
+
+      document
+        .querySelectorAll('input[name="pricing-plan"]')
+        .forEach((radio) => {
+          radio.addEventListener("change", function () {
+            if (this.id === "student") {
+
+              updateContent(
+                `<h2>Learning Statistics</h2><img src="/assets/img/Desain tanpa judul (2).svg "alt="Loading...">`
+              );
+            } else if (this.id === "business") {
+
+              updateContent(`
+              <div class="grid-3">
+                <div
+              class="course-card"
+              data-href="/courses/react-installation-tutorial.html"
+            >
+              <div class="course-image">
+                <img
+                  data-href="/courses/react-installation-tutorial.html"
+                  src="/assets/img/react-installation-tutorial.png"
+                  alt=""
+                />
+              </div>
+              <div class="course-text">
+                <h4>React installation tutorial</h4>
+                <p>
+                  Learn what is react and why you should start using it for your
+                  next projects
+                </p>
+              </div>
+            </div>
+            <div
+              class="course-card"
+              data-href="/courses/react-installation-tutorial.html"
+            >
+              <div class="course-image">
+                <img
+                  data-href="/courses/react-installation-tutorial.html"
+                  src="/assets/img/react-installation-tutorial.png"
+                  alt=""
+                />
+              </div>
+              <div class="course-text">
+                <h4>React installation tutorial</h4>
+                <p>
+                  Learn what is react and why you should start using it for your
+                  next projects
+                </p>
+              </div>
+            </div>
+            <div
+              class="course-card"
+              data-href="/courses/react-installation-tutorial.html"
+            >
+              <div class="course-image">
+                <img
+                  data-href="/courses/react-installation-tutorial.html"
+                  src="/assets/img/react-installation-tutorial.png"
+                  alt=""
+                />
+              </div>
+              <div class="course-text">
+                <h4>React installation tutorial</h4>
+                <p>
+                  Learn what is react and why you should start using it for your
+                  next projects
+                </p>
+              </div>
+            </div>
+              </div>
+            `);
+            } else if (this.id === "university") {
+
+              updateContent(`
+              <div class="grid-2">
+                <div class="grid-item"><img src="/assets/img/certificate.svg" alt="Certificate 1"></div>
+                <div class="grid-item"><img src="/assets/img/certificate.svg" alt="Certificate 1"></div>
+              </div>
+            `);
+            }
+          });
+        });
+
+
+      document.getElementById("student").checked = true;
+      updateContent(
+        `<h2>Learning Statistics</h2><img src="/assets/img/Desain tanpa judul (2).svg "alt="Loading...">`
+      );
+    </script>
+        <script>
+          const circles = document.querySelectorAll(".circless");
+          const coords = { x: 0, y: 0 };
+          const colors = [
+            "#ADFF2F",
+            "#9FFF3A",
+            "#8FFF46",
+            "#80FF52",
+            "#70FF5E",
+            "#60FF6A",
+            "#50FF75",
+            "#40FF81",
+            "#30FF8D",
+            "#20FF99",
+            "#10FFA4",
+            "#00FFB0",
+            "#00EFA0",
+            "#00DF90",
+            "#00CF80",
+            "#00BF70",
+            "#00AF60",
+            "#009F50",
+            "#008F40",
+            "#007F30",
+          ];
+    
+          let isAnimating = false;
+    
+          function isDesktop() {
+            return window.innerWidth >= 1024;
+          }
+    
+          function showCircles() {
+            circles.forEach(function (circle, index) {
+              circle.style.display = "block";
+              circle.x = 0;
+              circle.y = 0;
+              circle.style.backgroundColor = colors[index % colors.length];
+            });
+          }
+    
+          function hideCircles() {
+            circles.forEach(function (circle) {
+              circle.style.display = "none";
+            });
+          }
+    
+          function handleCursorEffect() {
+            if (isDesktop()) {
+              showCircles();
+              window.addEventListener("mousemove", onMouseMove);
+    
+              if (!isAnimating) {
+                isAnimating = true;
+                animateCircles();
+              }
+            } else {
+              hideCircles();
+              window.removeEventListener("mousemove", onMouseMove);
+              isAnimating = false;
+            }
+          }
+    
+          function onMouseMove(e) {
+            coords.x = e.clientX;
+            coords.y = e.clientY;
+          }
+    
+          function animateCircles() {
+            if (!isDesktop()) return;
+    
+            let x = coords.x;
+            let y = coords.y;
+    
+            circles.forEach(function (circle, index) {
+              circle.style.left = x - 12 + "px";
+              circle.style.top = y - 12 + "px";
+              circle.style.transform = `scale(${
+                (circles.length - index) / circles.length
+              })`;
+    
+              circle.x = x;
+              circle.y = y;
+    
+              const nextCircle = circles[index + 1] || circles[0];
+              x += (nextCircle.x - x) * 0.3;
+              y += (nextCircle.y - y) * 0.3;
+            });
+    
+            requestAnimationFrame(animateCircles);
+          }
+    
+          handleCursorEffect();
+    
+          window.addEventListener("resize", handleCursorEffect);
+        </script>
+  </body>
+</html>

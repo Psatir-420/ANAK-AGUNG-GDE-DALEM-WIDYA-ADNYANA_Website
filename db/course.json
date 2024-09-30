@@ -1,0 +1,32 @@
+[
+    { 
+        "title": "React Installation Tutorial",
+        "category": "category1",
+        "description": "Learn what React is and why you should start using it for your next projects."
+    },
+    { 
+        "title": "Python for Beginners",
+        "category": "category2",
+        "description": "Master the fundamentals of Python programming."
+    },
+    { 
+        "title": "Web Design Fundamentals",
+        "category": "category3",
+        "description": "Explore the principles of effective web design with HTML and CSS."
+    },
+    { 
+        "title": "Data Science with Python",
+        "category": "category2",
+        "description": "Dive into data analysis and visualization using Python libraries."
+    },
+    { 
+        "title": "JavaScript for Interactive Web",
+        "category": "category1",
+        "description": "Build dynamic and interactive web applications with JavaScript."
+    },
+    { 
+        "title": "User Experience (UX) Design",
+        "category": "category3",
+        "description": "Learn how to design user-centered and intuitive digital experiences."
+    }
+]

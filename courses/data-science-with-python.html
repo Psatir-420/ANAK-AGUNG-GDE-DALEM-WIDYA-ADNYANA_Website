@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../lib/boxicons v2.1.4/css/boxicons.min.css">
+    <link rel="icon" href="/assets/img/favicon.svg">
+
+    <title>Python for Data Science</title>
+</head>
+<body>
+    <nav>
+        <div class="container nav-con">
+            <a href="index.html"><img style="width: 100%; height: auto;" src="/assets/img/logo.svg" alt="logo"></a>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="../page/courses.html">Courses</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="dashboard"><a href="../dashboard.html">Account</a></li>
+                <li><a class="status" onclick="checkStatus()">Login</a></li>
+            </ul>
+            <button class="open-menu"><i class="bx bx-menu"></i></button>
+            <button class="close-menu"><i class="bx bx-x"></i></button>
+        </div>
+    </nav>
+
+    <div class="container blog">
+        <h1>Python for Data Science</h1>
+    </div>
+    <section class="blog-content">
+        <div class="blog-text">
+            <div class="blog-l">
+                <h4>Unlock the Power of Data with Python: A Data Science Journey</h4>
+                <br>
+                <p>Python has become a leading language in data science due to its simplicity and the powerful libraries available for data analysis and visualization. With Python, you can efficiently handle large datasets, perform complex analyses, and create insightful visualizations.</p>
+                <br>
+                <h5>Why Python for Data Science?</h5>
+                <ul>
+                    <li><p><strong>Libraries and Frameworks:</strong> Python boasts a rich ecosystem of libraries such as Pandas, NumPy, and SciPy, which make data manipulation and analysis straightforward. Libraries like Matplotlib and Seaborn help you create meaningful visualizations with ease.</p></li>
+                    <li><p><strong>Simplicity and Readability:</strong> Python’s clean and readable syntax allows you to write and understand code more easily, which is crucial for analyzing complex datasets and collaborating with others.</p></li>
+                    <li><p><strong>Community and Resources:</strong> Python has a vibrant community and extensive resources, including tutorials, forums, and documentation, which can help you quickly solve problems and stay updated with the latest trends in data science.</p></li>
+                </ul>
+            </div>
+            <div class="blog-r">
+                <img src="/assets/img/data-science-with-python.png" alt="">
+            </div>
+        </div>
+        <div class="blog-ide">
+            <div class="code-editor">
+                <pre>
+<code>
+# Example of using Python for data analysis with Pandas
+
+import pandas as pd
+
+# Load dataset
+data = pd.read_csv('data.csv')
+
+# Display the first few rows of the dataset
+print(data.head())
+
+# Basic statistics
+print(data.describe())
+
+# Data visualization
+import matplotlib.pyplot as plt
+data['column_name'].hist()
+plt.show()
+              </code>
+                </pre>
+            </div>
+            <div>
+                <h5>Getting Started with Data Analysis</h5>
+                <p>To start with data science using Python, familiarize yourself with essential libraries like Pandas for data manipulation, NumPy for numerical computations, and Matplotlib or Seaborn for visualization. Practice by working on real-world datasets to build your skills and apply your knowledge.</p>
+                <br>
+                <h5 style="text-align: end;">Why Data Science Matters?</h5>
+                <p style="text-align: end;">Data science helps organizations make informed decisions by extracting insights from data. With Python, you can perform tasks ranging from simple data cleaning to advanced machine learning models, making it a crucial tool in today's data-driven world.</p>
+                <br>
+                <p style="text-align: end;">Consistent practice and learning will deepen your understanding of data science. Explore various datasets and projects to enhance your skills and contribute to the growing field of data science.</p>
+            </div>
+        </div>
+    </section>
+
+    <button id="goToTopBtn" class="top" title="Go to top"><i class="bx bx-up-arrow-alt"></i></button>
+    <script src="/js/script.js"></script>
+    <script>
+        if (localStorage.getItem("isLogin") !== "true") {
+            window.location.href = "../auth/loginv2.html?redirect=..%2Fcourses%2Fdata-science-with-python.html";
+        }
+    </script>
+    <script>
+        function checkButton() {
+            const dashboard = document.querySelector('.dashboard');
+            const loginStatus = localStorage.getItem('loginStatus');
+            const statusElement = document.querySelector('.status');
+
+            if (loginStatus === 'login') {
+                // User is logged in, update status
+                console.log("masuk")
+                dashboard.style.display = 'block';
+                statusElement.textContent = 'Logout';
+                statusElement.style.color = '#B23B3B';
+            } else {
+                // User is not logged in, update status
+                dashboard.style.display = 'none';
+                statusElement.textContent = 'Login';
+                statusElement.style.color = 'teal';
+            }
+        }
+
+        window.onload = checkButton;
+    </script>
+</body>
+</html>

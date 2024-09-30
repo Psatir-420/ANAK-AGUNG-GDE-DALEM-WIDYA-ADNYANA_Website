@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../lib/boxicons v2.1.4/css/boxicons.min.css">
+    <link rel="icon" href="/assets/img/favicon.svg">
+
+    <title>DOM Manipulation</title>
+</head>
+<body>
+    <nav>
+        <div class="container nav-con">
+            <a href="index.html"><img style="width: 100%; height: auto;" src="/assets/img/logo.svg" alt="logo"></a>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="../page/courses.html">Courses</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="dashboard"><a href="../dashboard.html">Account</a></li>
+                <li><a class="status" onclick="checkStatus()">Login</a></li>
+            </ul>
+            <button class="open-menu"><i class="bx bx-menu"></i></button>
+            <button class="close-menu"><i class="bx bx-x"></i></button>
+        </div>
+    </nav>
+
+    <div class="container blog">
+        <h1>DOM Manipulation</h1>
+    </div>
+    <section class="blog-content">
+        <div class="blog-text">
+            <div class="blog-l">
+                <h4>Enhance Your Web Development Skills with DOM Manipulation</h4>
+                <br>
+                <p>DOM Manipulation is a powerful technique used in web development to dynamically change the content, structure, and style of a web page. By interacting with the Document Object Model (DOM), you can create interactive and engaging user experiences.</p>
+                <br>
+                <h5>Why DOM Manipulation?</h5>
+                <ul>
+                    <li><p><strong>Dynamic Content Updates:</strong> DOM Manipulation allows you to update the content of a web page without requiring a full reload. This makes your web applications more responsive and interactive.</p></li>
+                    <li><p><strong>Interactive User Interfaces:</strong> With DOM Manipulation, you can create interactive features like dropdown menus, modal windows, and real-time data updates, enhancing the user experience.</p></li>
+                    <li><p><strong>Customizability:</strong> You can customize the appearance and behavior of elements on your page based on user interactions or other conditions, providing a personalized experience.</p></li>
+                </ul>
+            </div>
+            <div class="blog-r">
+                <img src="/assets/img/javascript-for-interactive-web.png" alt="">
+            </div>
+        </div>
+        <div class="blog-ide">
+            <div class="code-editor">
+                <pre>
+<code>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Example</title>
+</head>
+<body>
+    <h1 id="main-title">Hello, World!</h1>
+    <button id="change-title-btn">Change Title</button>
+
+    <script>
+        document.getElementById('change-title-btn').addEventListener('click', function() {
+            document.getElementById('main-title').textContent = 'Title Changed!';
+        });
+    </script>
+</body>
+</html>
+              </code>
+                </pre>
+            </div>
+            <div>
+                <h5>Understanding DOM Methods</h5>
+                <p>The DOM provides various methods to interact with HTML elements. Methods like `getElementById()`, `querySelector()`, and `createElement()` allow you to select, modify, and create elements dynamically. Understanding these methods is crucial for effective DOM manipulation.</p>
+                <br>
+                <h5 style="text-align: end;">Why Learn DOM Manipulation?</h5>
+                <p style="text-align: end;">Mastering DOM Manipulation is essential for building modern, interactive web applications. It enables you to enhance user experiences by providing dynamic and responsive interfaces. As you become more proficient, you'll be able to create richer, more engaging web applications.</p>
+                <br>
+                <p style="text-align: end;">Consistent practice with DOM Manipulation will help you build more efficient and effective web solutions. Explore different methods and experiment with various techniques to gain a deeper understanding.</p>
+            </div>
+        </div>
+    </section>
+
+    <button id="goToTopBtn" class="top" title="Go to top"><i class="bx bx-up-arrow-alt"></i></button>
+    <script src="/js/script.js"></script>
+    <script>
+        if (localStorage.getItem("isLogin") !== "true") {
+            window.location.href = "../auth/loginv2.html?redirect=..%2Fcourses%2Fjavascript-for-interactive-web.html";
+        }
+    </script>
+    <script>
+        function checkButton() {
+            const dashboard = document.querySelector('.dashboard');
+            const loginStatus = localStorage.getItem('loginStatus');
+            const statusElement = document.querySelector('.status');
+
+            if (loginStatus === 'login') {
+                // User is logged in, update status
+                console.log("masuk")
+                dashboard.style.display = 'block';
+                statusElement.textContent = 'Logout';
+                statusElement.style.color = '#B23B3B';
+            } else {
+                // User is not logged in, update status
+                dashboard.style.display = 'none';
+                statusElement.textContent = 'Login';
+                statusElement.style.color = 'teal';
+            }
+        }
+
+        window.onload = checkButton;
+    </script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../lib/boxicons v2.1.4/css/boxicons.min.css">
+    <link rel="icon" href="/assets/img/favicon.svg">
+
+    <title>Python For Beginners</title>
+</head>
+<body>
+    <nav>
+        <div class="container nav-con">
+            <a href="index.html"><img style="width: 100%; height: auto;" src="/assets/img/logo.svg" alt="logo"></a>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="../page/courses.html">Courses</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="dashboard"><a href="../dashboard.html">Account</a></li>
+                <li><a class="status" onclick="checkStatus()">Login</a></li>
+            </ul>
+            <button class="open-menu"><i class="bx bx-menu"></i></button>
+            <button class="close-menu"><i class="bx bx-x"></i></button>
+        </div>
+    </nav>
+
+
+    <div class="container blog">
+        <h1>Python For Beginners</h1>
+    </div>
+<section class="blog-content">
+    <div class="blog-text">
+        <div class="blog-l">
+            <h4>Level Up Your Programming Skills with Python: A Beginner's Journey                </h4>
+            <br>
+            <p>So you've heard about Python and how it's one of the most popular programming languages. But what exactly is it, and why should you care?
+                In a nutshell, Python is a versatile and beginner
+-friendly language that makes coding accessible to everyone. It's like your trusty toolkit for building websites, analyzing data, automating tasks, and much more. </p>
+            <br>
+            <h5>Why Python?</h5>
+            <ul>
+                <li><p><strong>Readability:</strong> Python emphasizes clear and concise code, making it easy to understand and learn, even for beginners. It's like reading plain English!</p></li>
+                <li><p><strong>Versatility:</strong> Python can be used for a wide range of tasks, from web development and data science to machine learning and artificial intelligence. It's a true all-rounder.</p></li>
+                <li><p><strong>Large Community:</strong> Python has a massive and active community, meaning you'll find tons of resources, libraries, and support when you need it.</p></li>
+            </ul>
+        
+            </div>
+        <div class="blog-r">
+            <img src="/assets/img/python-for-beginners.png" alt=""> 
+        </div>
+    </div>
+    <div class="blog-ide">
+        <div class="code-editor">
+            <pre>
+<code>
+# This is a simple Python program that prints "Hello, world!"
+print("Hello, world!")
+              </code>
+            </pre>
+        </div>
+        <div>
+            <h5>Indentation: The Key to Python's Structure</h5>
+            <p>Unlike many other programming languages that use curly braces {} to define code blocks, Python relies on indentation. This might seem unusual at first, but it forces you to write clean and well-structured code, making it easier to read and understand.</p>
+            <br>
+            <h5 style="text-align: end;">Why Indentation?</h5>
+            <p style="text-align: end;">Indentation in Python is not just a matter of style; it's a fundamental part of the language's syntax. It tells the interpreter which statements belong to which block of code. This strictness might feel a bit restrictive at first, but it ultimately leads to more consistent and readable code.</p>
+            <br>
+            <p style="text-align: end;">Consistent indentation is crucial in Python. Make sure you use the same number of spaces or tabs for each level of indentation throughout your code.  </p>
+        </div>
+    </div>
+</section>
+
+
+
+
+    <button id="goToTopBtn" class="top" title="Go to top"><i class="bx bx-up-arrow-alt"></i></button>
+    <script src="/js/script.js"></script>
+    <script>
+        if (localStorage.getItem("isLogin") !== "true") {
+            window.location.href = "../auth/loginv2.html?redirect=..%2Fcourses%2Fpython-for-beginners.html";        }
+    </script>
+    <script>
+        function checkButton() {
+    const dashboard = document.querySelector('.dashboard');
+    const loginStatus = localStorage.getItem('loginStatus');
+    const statusElement = document.querySelector('.status');
+  
+    if (loginStatus === 'login') {
+        // User is logged in, update status
+        console.log("masuk")
+        dashboard.style.display = 'block';
+        statusElement.textContent = 'Logout';
+        statusElement.style.color = '#B23B3B';
+    } else {
+        // User is not logged in, update status
+        dashboard.style.display = 'none';
+        statusElement.textContent = 'Login';
+        statusElement.style.color = 'teal';
+    }
+  }
+  
+        window.onload = checkButton;
+      </script>
+    
+</body>
+</html>

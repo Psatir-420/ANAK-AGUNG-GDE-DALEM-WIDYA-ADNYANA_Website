@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../lib/boxicons v2.1.4/css/boxicons.min.css">
+    <link rel="icon" href="/assets/img/favicon.svg">
+
+    <title>Web Design Fundamentals</title>
+</head>
+<body>
+    <nav>
+        <div class="container nav-con">
+            <a href="index.html"><img style="width: 100%; height: auto;" src="/assets/img/logo.svg" alt="logo"></a>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="../page/courses.html">Courses</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="dashboard"><a href="../dashboard.html">Account</a></li>
+                <li><a class="status" onclick="checkStatus()">Login</a></li>
+            </ul>
+            <button class="open-menu"><i class="bx bx-menu"></i></button>
+            <button class="close-menu"><i class="bx bx-x"></i></button>
+        </div>
+    </nav>
+
+    <div class="container blog">
+        <h1>Web Design Fundamentals</h1>
+    </div>
+    <section class="blog-content">
+        <div class="blog-text">
+            <div class="blog-l">
+                <h4>Mastering the Basics of Web Design: A Comprehensive Overview</h4>
+                <br>
+                <p>Web design is a crucial aspect of creating effective and engaging websites. Understanding the fundamentals of web design helps you build visually appealing and user-friendly sites that meet the needs of your audience. This guide covers essential principles and practices to get you started.</p>
+                <br>
+                <h5>Key Principles of Web Design</h5>
+                <ul>
+                    <li><p><strong>Layout and Structure:</strong> The layout of a website determines how content is organized and presented. Effective layouts use grids, whitespace, and visual hierarchy to guide users' attention and create a clear flow of information.</p></li>
+                    <li><p><strong>Typography:</strong> Typography involves choosing and arranging fonts to enhance readability and convey the right tone. Consistent use of font styles, sizes, and spacing contributes to a professional and cohesive design.</p></li>
+                    <li><p><strong>Color Theory:</strong> Color plays a significant role in web design, affecting mood and usability. Understanding color theory helps you select a harmonious color palette that aligns with your brand and improves user experience.</p></li>
+                    <li><p><strong>Responsiveness:</strong> A responsive design ensures that your website looks and functions well on various devices and screen sizes. This involves using flexible layouts and media queries to adapt to different viewports.</p></li>
+                </ul>
+            </div>
+            <div class="blog-r">
+                <img src="/assets/img/web-design-fundamentals.png" alt="">
+            </div>
+        </div>
+        <div class="blog-ide">
+            <div class="code-editor">
+                <pre>
+                    <code></code>
+                </pre>
+            </div>
+            <div>
+                <h5>Getting Started with Web Design</h5>
+                <p>To get started with web design, begin by learning the basic HTML and CSS that form the foundation of web pages. Explore various design principles, practice creating layouts, and experiment with different styles and techniques. Building a portfolio of projects will help you apply your knowledge and showcase your skills.</p>
+                <br>
+                <h5 style="text-align: end;">Why Study Web Design?</h5>
+                <p style="text-align: end;">Studying web design allows you to create visually appealing and functional websites that effectively communicate with users. Mastering web design principles not only enhances your ability to craft engaging web experiences but also opens up various career opportunities in the digital world.</p>
+                <br>
+                <p style="text-align: end;">Consistent practice and staying updated with current trends and technologies will help you become proficient in web design. Engage in projects, seek feedback, and continue learning to refine your skills.</p>
+            </div>
+        </div>
+    </section>
+
+    <button id="goToTopBtn" class="top" title="Go to top"><i class="bx bx-up-arrow-alt"></i></button>
+    <script src="/js/script.js"></script>
+    <script>
+        if (localStorage.getItem("isLogin") !== "true") {
+            window.location.href = "../auth/loginv2.html?redirect=..%2Fcourses%2Fweb-design-fundamentals.html";
+        }
+    </script>
+    <script>
+        function checkButton() {
+            const dashboard = document.querySelector('.dashboard');
+            const loginStatus = localStorage.getItem('loginStatus');
+            const statusElement = document.querySelector('.status');
+
+            if (loginStatus === 'login') {
+                // User is logged in, update status
+                console.log("masuk")
+                dashboard.style.display = 'block';
+                statusElement.textContent = 'Logout';
+                statusElement.style.color = '#B23B3B';
+            } else {
+                // User is not logged in, update status
+                dashboard.style.display = 'none';
+                statusElement.textContent = 'Login';
+                statusElement.style.color = 'teal';
+            }
+        }
+
+        window.onload = checkButton;
+    </script>
+</body>
+</html>

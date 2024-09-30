@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DeBug.org - Contact Us</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      href="/assets/img/favicon.svg"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/lib/boxicons v2.1.4/css/boxicons.min.css" />
+    <link rel="stylesheet" href="lib/Animate On Scroll v2.3.2/dist/aos.css" />
+
+    <style>
+      .container-contact {
+        background: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(8px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        padding: 30px;
+        width: 70%;
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #ffffff;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        color: #ffffff;
+      }
+
+      input:user-valid {
+        border-color: aquamarine !important;
+      }
+
+      input:user-invalid {
+        border-color: #f75842 !important;
+      }
+
+      input[type="email"],
+      input[type="text"],
+      textarea {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        border-radius: 5px;
+        box-sizing: border-box;
+        margin-bottom: 15px;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #ffffff;
+      }
+
+      button {
+        max-width: fit-content;
+        font-size: 0.7rem !important;
+        letter-spacing: 1px;
+        max-height: fit-content;
+        padding: 0;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.4);
+        transition: all 0.4s ease;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .modal-content {
+        background-color: #424890;
+        color: #fff;
+        margin: 15% auto;
+        border-radius: 10px;
+        padding: 20px;
+        border: 1px solid #fff;
+        width: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+      }
+
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      #text {
+        color: greenyellow;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: greenyellow;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .contact {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: center;
+        justify-content: center;
+        padding: 5rem;
+        margin-top: 2rem;
+      }
+
+      @media screen and (max-width: 1000px) {
+        body {
+          overflow-y: scroll;
+        }
+
+        .contact {
+          grid-template-columns: 1fr;
+        }
+
+        .container-contact {
+          width: 100%;
+        }
+      }
+
+      @keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(-20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0);
+  }}
+    </style>
+  </head>
+  <body>
+    <nav class="window-scroll">
+      <div class="container nav-con">
+        <a href="../index.html"
+          ><img
+            style="width: 100%; height: auto"
+            src="/assets/img/logo.svg"
+            alt="logo"
+        /></a>
+        <ul class="nav-menu">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="contact.html" class="ngendih">Contact</a></li>
+          <li class="dashboard"><a href="../dashboard.html">Account</a></li>
+          <li><a class="status" onclick="checkStatus()">Login</a></li>
+        </ul>
+        <button class="open-menu"><i class="bx bx-menu"></i></button>
+        <button class="close-menu"><i class="bx bx-x"></i></button>
+      </div>
+    </nav>
+
+    <section>
+      <div class="contact">
+        <div class="contact-l">
+          <h2 style="color: greenyellow">Contact Us</h2>
+          <p style="width: 80%; text-align: center; margin: 0 auto">
+            We'd love to hear from you! Whether you have a question, feedback,
+            or just want to say hello, please feel free to get in touch using
+            the form below.
+          </p>
+        </div>
+        <div class="contact-r">
+          <div class="container-contact">
+            <form id="contactForm" autocomplete="off">
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" required />
+
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required />
+
+              <label for="subject">Message:</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+              ></textarea>
+
+              <button class="btn" type="submit">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="container foot-con">
+        <div class="foot-1">
+          <a href="index.html"
+            ><img
+              style="width: 200px; height: 70px"
+              src="/assets/img/logo.svg"
+              alt="logo"
+          /></a>
+          <p>
+            DeBug.org is a non-profit organization dedicated to providing free
+            education to everyone. Join us on our mission to democratize
+            learning
+          </p>
+        </div>
+
+        <div class="foot-2">
+          <h3>DeBug.org</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="/page/about.html">About</a></li>
+            <li><a href="page/courses.html">Courses</a></li>
+            <li><a href="page/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="foot-social">
+          <h3>Contact Us</h3>
+          <p>0896969420</p>
+          <ul class="social">
+            <li>
+              <i class="bx bxl-facebook-circle" style="color: #4267b2"></i>
+            </li>
+            <li><i class="bx bxl-instagram-alt"></i></li>
+            <li><i class="bx bxl-twitter" style="color: #1da1f2"></i></li>
+            <li><i class="bx bxl-github" style="color: #171515"></i></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <p>Thank you for your message!</p>
+        <span class="close">&times;</span>
+      </div>
+    </div>
+
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+    <div class="circless"></div>
+
+    <script src="/js/contact.js"></script>
+    <script src="/js/script.js"></script>
+    <script>
+      function checkButton() {
+        const dashboard = document.querySelector(".dashboard");
+        const loginStatus = localStorage.getItem("loginStatus");
+        const statusElement = document.querySelector(".status");
+
+        if (loginStatus === "login") {
+          console.log("masuk");
+          dashboard.style.display = "block";
+          statusElement.textContent = "Logout";
+          statusElement.style.color = "#B23B3B";
+        } else {
+          dashboard.style.display = "none";
+          statusElement.textContent = "Login";
+          statusElement.style.color = "teal";
+        }
+      }
+
+      window.onload = checkButton;
+    </script>
+    <script>
+      const circles = document.querySelectorAll(".circless");
+      const coords = { x: 0, y: 0 };
+      const colors = [
+        "#ADFF2F",
+        "#9FFF3A",
+        "#8FFF46",
+        "#80FF52",
+        "#70FF5E",
+        "#60FF6A",
+        "#50FF75",
+        "#40FF81",
+        "#30FF8D",
+        "#20FF99",
+        "#10FFA4",
+        "#00FFB0",
+        "#00EFA0",
+        "#00DF90",
+        "#00CF80",
+        "#00BF70",
+        "#00AF60",
+        "#009F50",
+        "#008F40",
+        "#007F30",
+      ];
+
+      let isAnimating = false;
+
+      function isDesktop() {
+        return window.innerWidth >= 1024;
+      }
+
+      function showCircles() {
+        circles.forEach(function (circle, index) {
+          circle.style.display = "block";
+          circle.x = 0;
+          circle.y = 0;
+          circle.style.backgroundColor = colors[index % colors.length];
+        });
+      }
+
+      function hideCircles() {
+        circles.forEach(function (circle) {
+          circle.style.display = "none";
+        });
+      }
+
+      function handleCursorEffect() {
+        if (isDesktop()) {
+          showCircles();
+          window.addEventListener("mousemove", onMouseMove);
+
+          if (!isAnimating) {
+            isAnimating = true;
+            animateCircles();
+          }
+        } else {
+          hideCircles();
+          window.removeEventListener("mousemove", onMouseMove);
+          isAnimating = false;
+        }
+      }
+
+      function onMouseMove(e) {
+        coords.x = e.clientX;
+        coords.y = e.clientY;
+      }
+
+      function animateCircles() {
+        if (!isDesktop()) return;
+
+        let x = coords.x;
+        let y = coords.y;
+
+        circles.forEach(function (circle, index) {
+          circle.style.left = x - 12 + "px";
+          circle.style.top = y - 12 + "px";
+          circle.style.transform = `scale(${
+            (circles.length - index) / circles.length
+          })`;
+
+          circle.x = x;
+          circle.y = y;
+
+          const nextCircle = circles[index + 1] || circles[0];
+          x += (nextCircle.x - x) * 0.3;
+          y += (nextCircle.y - y) * 0.3;
+        });
+
+        requestAnimationFrame(animateCircles);
+      }
+
+      handleCursorEffect();
+
+      window.addEventListener("resize", handleCursorEffect);
+    </script>
+  </body>
+</html>
